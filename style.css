@@ -38,21 +38,21 @@ body, html {
 }
 
 /* Mascara negra que se recorta */
-.reveal-mask {
+.mask-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  z-index: 10;
-  clip-path: circle(0% at 50% 50%);
-  animation: revealCircle 1.5s ease-out forwards;
+  inset: 0;
+  z-index: 100;
+  background: radial-gradient(circle at center, transparent 0%, transparent 0%, black 0%);
+  animation: holeReveal 2s ease-out forwards;
 }
 
-@keyframes revealCircle {
-  0% { clip-path: circle(0% at 50% 50%); }
-  100% { clip-path: circle(150% at 50% 50%); }
+@keyframes holeReveal {
+  0% {
+    background: radial-gradient(circle at center, transparent 0%, transparent 0%, black 0%);
+  }
+  100% {
+    background: radial-gradient(circle at center, transparent 100%, transparent 100%, black 100%);
+  }
 }
 
 /* Botón siguiente visible solo al final */
