@@ -1,18 +1,12 @@
-const slides = document.querySelectorAll('.slide');
+const revealMask = document.getElementById('revealMask');
 const nextBtn = document.querySelector('.next');
-let current = 0;
-
-nextBtn.addEventListener('click', () => {
-  slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-});
+const music = document.getElementById('bg-music');
 
 window.addEventListener('load', () => {
+  // Reproducir música justo al terminar animación
   setTimeout(() => {
-    document.body.classList.remove('hidden');
-    const transition = document.getElementById('circleTransition');
-    if (transition) transition.remove();
-  }, 1600); // dura un poco más que la animación del círculo
+    revealMask.style.display = 'none';       // oculta la capa negra
+    nextBtn.style.display = 'block';         // muestra el botón siguiente
+    music.play();                             // inicia la música
+  }, 1600);
 });
-
