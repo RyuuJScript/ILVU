@@ -3,10 +3,9 @@ const nextBtn = document.querySelector('.next');
 const music = document.getElementById('bg-music');
 
 window.addEventListener('load', () => {
-  // Reproducir música justo al terminar animación
+  const overlay = document.getElementById('maskOverlay');
   setTimeout(() => {
-    revealMask.style.display = 'none';       // oculta la capa negra
-    nextBtn.style.display = 'block';         // muestra el botón siguiente
-    music.play();                             // inicia la música
-  }, 1600);
+    overlay.style.display = 'none';
+    document.body.style.overflow = 'auto'; // permite scroll después
+  }, 2000); // Tiempo que dura la animación
 });
