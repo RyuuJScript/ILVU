@@ -37,43 +37,9 @@ body, html {
   max-width: 300px;
 }
 
-/* Mascara negra que se recorta */
-.mask-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: black;
-  z-index: 100;
-  pointer-events: none;
-
-  mask-image: radial-gradient(circle at center, black 0%, black 0%, transparent 0%);
-  -webkit-mask-image: radial-gradient(circle at center, black 0%, black 0%, transparent 0%);
-  animation: holeReveal 2s ease-out forwards;
+.circular-reveal {
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+  overflow: hidden;
 }
-
-@keyframes holeReveal {
-  0% {
-    mask-image: radial-gradient(circle at center, black 0%, black 0%, transparent 0%);
-    -webkit-mask-image: radial-gradient(circle at center, black 0%, black 0%, transparent 0%);
-  }
-  100% {
-    mask-image: radial-gradient(circle at center, black 0%, black 100%, transparent 100%);
-    -webkit-mask-image: radial-gradient(circle at center, black 0%, black 100%, transparent 100%);
-  }
-}
-
-/* Botón siguiente visible solo al final */
-button.next {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  display: none; /* aparecerá tras la animación */
-  z-index: 5;
-  padding: .8rem 1.5rem;
-  background-color: #fff8dc;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Audio oculto al principio si quieres */
