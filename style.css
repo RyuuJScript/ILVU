@@ -37,24 +37,32 @@ body, html {
   max-width: 300px;
 }
 
-.mask-inverted {
+.mask-wrapper {
   position: fixed;
   inset: 0;
   background: black;
-  -webkit-mask-image: radial-gradient(circle at center, transparent 0%, transparent 100px, black 150px);
-  mask-image: radial-gradient(circle at center, transparent 0%, transparent 100px, black 150px);
   z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-@keyframes revealOutward {
+.mask-hole {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 0 0 1000px black; /* El fondo fuera del círculo */
+  animation: expandHole 2s ease-out forwards;
+}
+
+/* Suaviza la expansión del círculo */
+@keyframes expandHole {
   0% {
-    -webkit-mask-image: radial-gradient(circle at center, transparent 0px, transparent 0px, black 0px);
+    transform: scale(0);
   }
   100% {
-    -webkit-mask-image: radial-gradient(circle at center, transparent 0px, transparent 1000px, black 1000px);
+    transform: scale(30);
   }
-}
-
-.mask-inverted {
-  animation: revealOutward 2s ease-out forwards;
 }
