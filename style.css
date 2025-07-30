@@ -37,9 +37,24 @@ body, html {
   max-width: 300px;
 }
 
-.circular-reveal {
-  width: 256px;
-  height: 256px;
-  border-radius: 50%;
-  overflow: hidden;
+.mask-inverted {
+  position: fixed;
+  inset: 0;
+  background: black;
+  -webkit-mask-image: radial-gradient(circle at center, transparent 0%, transparent 100px, black 150px);
+  mask-image: radial-gradient(circle at center, transparent 0%, transparent 100px, black 150px);
+  z-index: 100;
+}
+
+@keyframes revealOutward {
+  0% {
+    -webkit-mask-image: radial-gradient(circle at center, transparent 0px, transparent 0px, black 0px);
+  }
+  100% {
+    -webkit-mask-image: radial-gradient(circle at center, transparent 0px, transparent 1000px, black 1000px);
+  }
+}
+
+.mask-inverted {
+  animation: revealOutward 2s ease-out forwards;
 }
