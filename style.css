@@ -3,8 +3,10 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden; /* evita que se vea scroll durante la animación */
 }
 
+/* Diapositiva con fondo */
 .slide {
   position: absolute;
   width: 100%;
@@ -21,12 +23,12 @@ body, html {
   width: 90%;
   max-width: 800px;
   height: 60%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 20px;
   z-index: 1;
 }
 
-/* Recuadro beige con texto e imagen */
+/* Recuadro beige con contenido */
 .content {
   position: relative;
   background: #f9f1e7;
@@ -37,6 +39,7 @@ body, html {
   max-width: 300px;
 }
 
+/* Círculo que revela el fondo */
 .mask-wrapper {
   position: fixed;
   inset: 0;
@@ -53,11 +56,11 @@ body, html {
   height: 100px;
   border-radius: 50%;
   background: transparent;
-  box-shadow: 0 0 0 1000px black; /* El fondo fuera del círculo */
+  box-shadow: 0 0 0 1000px black;
   animation: expandHole 2s ease-out forwards;
 }
 
-/* Suaviza la expansión del círculo */
+/* Animación suave del círculo */
 @keyframes expandHole {
   0% {
     transform: scale(0);
@@ -65,4 +68,19 @@ body, html {
   100% {
     transform: scale(30);
   }
+}
+
+/* Botón siguiente */
+button.next {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: none;
+  z-index: 5;
+  padding: .8rem 1.5rem;
+  background-color: #fff8dc;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
